@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.dao.mapper.CodeLibraryMapper">
+
+    <select id="getCodeNameByCodeNoAndItemNo" resultType="java.lang.String" >
+      select ITEMNAME from CODE_LIBRARY where itemno=#{itemNo} and CODENO=#{codeNo} and  isinuse=1
+    </select>
+    <select id="getCodeNameByCodeNo" resultType="com.spring.dao.entity.CodeLibrary" >
+      select * from CODE_LIBRARY where CODENO=#{codeNo} and  isinuse=1
+    </select>
+    <delete id="removeFromCache">
+        delete from code_library where codeno='ApplyChannel' and itemNo = '11'
+    </delete>
+</mapper>
