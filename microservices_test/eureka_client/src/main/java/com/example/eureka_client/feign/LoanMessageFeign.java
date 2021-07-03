@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * @author xinjunan
  * @date 2019/6/30 11:15
- * @Description:
+ * @Description: test
  */
 //MESSAGE-SERVICE 是被调用方(服务方的)名称
 @FeignClient(name="MESSAGE-SERVICE" ,url = "")
