@@ -1,8 +1,9 @@
 package com.example.eureka_client.xdclass.designpattern.proxypattern.factory.ali;
 
-import net.xdclass.factory.OrderFactory;
-import net.xdclass.factory.PayFactory;
-import net.xdclass.factory.RefundFactory;
+
+import com.example.eureka_client.xdclass.designpattern.proxypattern.factory.OrderFactory;
+import com.example.eureka_client.xdclass.designpattern.proxypattern.factory.PayFactory;
+import com.example.eureka_client.xdclass.designpattern.proxypattern.factory.RefundFactory;
 
 /**
  * 小滴课堂,愿景：让技术不再难学
