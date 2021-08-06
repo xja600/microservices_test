@@ -1,7 +1,8 @@
 package com.example.eureka_client.xdclass.designpattern.proxypattern.factory;
 
-import net.xdclass.factory.ali.AliOrderFactory;
-import net.xdclass.factory.wechat.WechatOrderFactory;
+
+import com.example.eureka_client.xdclass.designpattern.proxypattern.factory.ali.AliOrderFactory;
+import com.example.eureka_client.xdclass.designpattern.proxypattern.factory.wechat.WechatOrderFactory;
 
 /**
  * 小滴课堂,愿景：让技术不再难学
