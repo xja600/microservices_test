@@ -15,7 +15,7 @@ import javax.annotation.PostConstruct;
  * @author MG01972
  * @date 2019-12-31 15:44
  */
-@Component
+//@Component
 public class ConsumerService {
     @Value("${apache.rocketmq.consumer.PushConsumer}")
     private String consumerGroup;
