@@ -1,9 +1,8 @@
-package com.example.eureka_client.service.impl;
+package com.example.eureka_client.service.redis.Impl;
 
-import com.example.eureka_client.service.RedisService;
+import com.example.eureka_client.service.redis.RedisService;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
-import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;

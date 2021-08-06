@@ -1,4 +1,4 @@
-package com.example.eureka_client.service;
+package com.example.eureka_client.service.redis;
 
 public interface RedisService {
 

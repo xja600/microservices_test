@@ -2,7 +2,7 @@ package com.example.eureka_client.redis;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.eureka_client.EurekaClientApplicationTests;
-import com.example.eureka_client.service.RedisService;
+import com.example.eureka_client.service.redis.RedisService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
