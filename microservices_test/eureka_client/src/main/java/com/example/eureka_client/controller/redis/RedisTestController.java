@@ -2,6 +2,8 @@ package com.example.eureka_client.controller.redis;
 
 import com.example.eureka_client.aspect.RedisLock;
 import com.example.eureka_client.service.redis.util.RedisUtil;
+import com.example.eureka_client.service.userinfo.impl.UserInfoServiceImpl;
+import com.spring.dao.entity.UserInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/redis/test/")
 public class RedisTestController {
     private static final Logger LOGGER = LoggerFactory.getLogger(RedisTestController.class);
     @Autowired
     private RedisUtil redisUtil;
+
+    @Autowired
+    private UserInfoServiceImpl userInfoService;
 
     /**
      * 设置字符串值
@@ -40,6 +47,18 @@ public class RedisTestController {
         Object value = redisUtil.get(key);
         LOGGER.info("---getStrValue()-key={},value={}",key,value);
         return value;
+    }
+
+    /**
+     * postman: http://localhost:8771/redis/test/getUserInfoList?userId=test86
+     * @param userId
+     * @return
+     */
+    @RequestMapping("getUserInfoList")
+    @ResponseBody
+    public List<UserInfo> getUserInfo(String userId){
+
+        return userInfoService.getUserInfo(userId);
     }
 
 }
