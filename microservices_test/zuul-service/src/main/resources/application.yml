@@ -16,9 +16,15 @@ spring:
 #参考地址：https://blog.csdn.net/qiushisoftware/article/details/106034137
 zuul:
   routes:
-    feign:
-      path: /api/v1/loan/** # 自定义的路由
-      serviceId: message-service # 指向的服务名称
+      api:
+       path: /api/controller/**
+       serviceId: zuul-service
+    #eureka-client: /zuul/service01/**   #自定义路由，即访问的时候，自动把 eureka-client  换成 /zuul/service01/
+    #message-service: /zuul/service02/**
+  #ignored-services: eureka-client  #忽略整个服务，对外提供接口
+#    feign:
+#      path: /api/v1/loan/** # 自定义的路由
+#      serviceId: message-service # 指向的服务名称
 
 
 #参考文章：https://www.cnblogs.com/q149072205/p/14081185.html
