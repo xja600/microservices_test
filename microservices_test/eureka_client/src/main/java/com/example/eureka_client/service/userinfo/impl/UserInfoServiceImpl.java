@@ -31,14 +31,16 @@ public class UserInfoServiceImpl implements IUserInfoService {
         userInfo.setUserid(userId);
         // 从redis缓存中提取数据
         //List<UserInfo> userInfoList = (List<UserInfo>) redisTemplate.opsForValue().get("userInfoList_" + userId);
-        List<UserInfo> userInfoList = (List<UserInfo>) redisUtil.get("userInfoList_" + userId);
+       /* List<UserInfo> userInfoList = (List<UserInfo>) redisUtil.get("userInfoList_" + userId);
         log.info("========userInfoList={}==============",userInfoList);
         // 如果缓存中没有，则从数据库中查询并放入缓存中
         if(CollectionUtils.isEmpty(userInfoList)){
             userInfoList = userInfoMapper.getUserInfo(userInfo);
             redisTemplate.opsForValue().set("userInfoList_" + userId, userInfoList);
             log.info("========userInfoList为空，查数据库的用户信息放到缓存==============userInfoList_" + userId);
-        }
+        }*/
+
+        List<UserInfo> userInfoList = userInfoMapper.getUserInfo(userInfo);
 
         return userInfoList;
     }

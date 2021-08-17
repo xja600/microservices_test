@@ -40,7 +40,7 @@ public interface UserInfoMapper extends BaseMapper<UserInfo> {
      * @param userInfo
      * @return
      */
-    @Cacheable(value = {"userInfo"}, key = "#userInfo.userid", condition = "#userInfo.status=='2'")
+    @Cacheable(value = {"userInfo"}, key = "#userInfo.userid")
     List<UserInfo> getUserInfo(@Param("userInfo") UserInfo userInfo);
 
 }
