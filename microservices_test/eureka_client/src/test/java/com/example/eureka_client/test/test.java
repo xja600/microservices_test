@@ -13,7 +13,7 @@ public class test {
     private Father father;
 
     public static void main(String[] args) {
-        Map<String,String> hash = new HashMap<String,String>();
+        /*Map<String,String> hash = new HashMap<String,String>();
         hash.put("a","1");
         hash.put("b","2");
         hash.put("a","2");
@@ -22,8 +22,10 @@ public class test {
 
         List arrayList =  new ArrayList<>(10);
 
-        arrayList.add("1");
-        Collections.synchronizedCollection(arrayList);
+        arrayList.add("1");*/
+        //Collections.synchronizedCollection(arrayList);
+
+        testHashMap();
     }
 
     @Test
@@ -32,5 +34,15 @@ public class test {
         father.eat();
 //        father.eat();
 //        System.out.println(boy.eat(););
+    }
+
+    /**
+     * hashMap测试类
+     */
+    public static void testHashMap(){
+        String key = "abc";
+
+        //获取key的hashCode值
+        System.out.println(key.hashCode());
     }
 }
