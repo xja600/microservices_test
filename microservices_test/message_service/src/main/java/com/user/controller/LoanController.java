@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LoanController {
 
+    /**
+     * 请求地址：http://localhost:8772/api/v1/loan/sendmessage1?message=测试zuul异常情况走这个服务
+     * @param message
+     * @return
+     */
     @RequestMapping("/api/v1/loan/sendmessage1")
     @ResponseBody
     public String sendMessage(@RequestParam(value = "message") String message){
