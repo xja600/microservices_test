@@ -1,9 +1,12 @@
 package com.example.eureka_client.javabase.hashmap;
 
 import com.example.eureka_client.javabase.hashmap.impl.HashMap;
+import org.springframework.core.SpringVersion;
 
 public class HashMapTest {
     public static void main(String[] args) {
+        //查看springboot版本
+        System.out.println(SpringVersion.getVersion());
         hashMapTest();
     }
 
@@ -14,4 +17,6 @@ public class HashMapTest {
         System.out.println(map.get("Monkey老师"));
         System.out.println(map.get("愚者"));
     }
+
+
 }
