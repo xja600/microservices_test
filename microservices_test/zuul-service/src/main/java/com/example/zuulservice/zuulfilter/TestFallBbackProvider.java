@@ -2,19 +2,25 @@ package com.example.zuulservice.zuulfilter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.http.HttpHeaders;
 import org.springframework.cloud.netflix.zuul.filters.route.FallbackProvider;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
+ * 文章地址：https://www.cnblogs.com/jing99/p/11696192.html
+ *
  * 如果需要在Zuul网关服务中增加容错处理fallback，需要实现接口ZuulFallbackProvider
  * spring-cloud框架，在Edgware版本(包括)之后，声明接口ZuulFallbackProvider过期失效，
  * 提供了新的ZuulFallbackProvider的子接口 - FallbackProvider
@@ -100,7 +106,7 @@ public class TestFallBbackProvider implements FallbackProvider {
             return this.executeFallback(HttpStatus.GATEWAY_TIMEOUT,
                     msg, "application", "json", "utf-8");
         }else{
-            return this.fallbackResponse("",new Throwable);
+            return this.fallbackResponse("",new Throwable());
         }
     }
 
@@ -124,7 +130,7 @@ public class TestFallBbackProvider implements FallbackProvider {
              */
             @Override
             public HttpHeaders getHeaders() {
-                com.netflix.client.http.HttpHeaders header = new HttpHeaders();
+                HttpHeaders header = new HttpHeaders();
                 MediaType mt = new MediaType(mediaType, subMediaType, Charset.forName(charsetName));
                 header.setContentType(mt);
                 return header;
