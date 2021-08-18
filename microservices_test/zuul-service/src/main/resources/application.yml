@@ -18,32 +18,25 @@ spring:
 #介绍zuul比较全面的文章：https://www.cnblogs.com/jing99/p/11696192.html
 zuul:
 #  add-host-header: true #webui重定向  请求头host显示为网关的（eg:localhost:9090）而非webui的
-#  ignoredServices: '*' #禁用服务名路游
+  ignoredServices: '*' #1、禁用服务名路游 此方式相当于给所有新发现的服务默认排除zuul网关访问方式，只有配置了路由网关的服务才可以通过zuul网关访问，即下面再配置服务器或路径的的请求才可以通过
 #  sensitive-headers:   #传递头信息
 #  retryable: true  #负载均衡时，路游的服务重启时，可通过重试到其他相同服务
-  routes:  #URL路径匹配，浏览器请求：http://localhost:8771/api/controller/loan/sendmessage和http://localhost:8774/api/controller/loan/sendmessage  显示的结果一样
-     user-route:   #路由ID，随意写
-       url: http://localhost:8771  #映射的实际路径
-       path: /api/**   #映射路径
-       strip-prefix: false
-#  routes:
-#    ser-service:   #路由ID，随意写
 
-    #eureka-client: /zuul/service01/**   #自定义路由，即访问的时候，自动把 eureka-client  换成 /zuul/service01/
-    #message-service: /zuul/service02/**
-  #ignored-services: eureka-client  #忽略整个服务，对外提供接口
-#    feign:
-#      path: /api/v1/loan/** # 自定义的路由
-#      serviceId: message-service # 指向的服务名称
+#  routes:  #2、URL路径匹配，浏览器请求：http://localhost:8771/api/controller/loan/sendmessage和http://localhost:8774/api/controller/loan/sendmessage  显示的结果一样
+#     user-route:   #路由ID，随意写
+#       url: http://localhost:8771  #映射的实际路径
+#       path: /api/**   #映射路径
+#       strip-prefix: false  #默认为true会自动截取请求地址，需要设置为false
 
+  routes:  #3、服务名称匹配，浏览器请求：http://localhost:8771/api/controller/loan/sendmessage和http://localhost:8774/api/controller/loan/sendmessage  显示的结果一样
+    user-route:   #路由ID，随意写
+      serviceId: eureka-client  #映射的实际服务名称
+      path: /api/**   #映射路径
+      strip-prefix: false  #默认为true会自动截取请求地址，需要设置为false
 
 #参考文章：https://www.cnblogs.com/q149072205/p/14081185.html
 # 自定义配置
 sysconfig:
   isDebug: true  #是否Debug
   swagger: true  #开启swagger
-
-#正常走的地址：eureka-client ：http://localhost:8771/api/controller/loan/sendmessage
-#异常之后走：message-service：http://localhost:8772/api/v1/loan/sendmessage1
-
 #@LoadBalanced
