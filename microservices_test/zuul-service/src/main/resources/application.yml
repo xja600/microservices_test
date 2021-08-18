@@ -13,12 +13,22 @@ spring:
   application:
     name: zuul-service
 
+
 #参考地址：https://blog.csdn.net/qiushisoftware/article/details/106034137
+#介绍zuul比较全面的文章：https://www.cnblogs.com/jing99/p/11696192.html
 zuul:
-  routes:
-      api:
-       path: /api/controller/**
-       serviceId: zuul-service
+#  add-host-header: true #webui重定向  请求头host显示为网关的（eg:localhost:9090）而非webui的
+#  ignoredServices: '*' #禁用服务名路游
+#  sensitive-headers:   #传递头信息
+#  retryable: true  #负载均衡时，路游的服务重启时，可通过重试到其他相同服务
+  routes:  #URL路径匹配，浏览器请求：http://localhost:8771/api/controller/loan/sendmessage和http://localhost:8774/api/controller/loan/sendmessage  显示的结果一样
+     user-route:   #路由ID，随意写
+       url: http://localhost:8771  #映射的实际路径
+       path: /api/**   #映射路径
+       strip-prefix: false
+#  routes:
+#    ser-service:   #路由ID，随意写
+
     #eureka-client: /zuul/service01/**   #自定义路由，即访问的时候，自动把 eureka-client  换成 /zuul/service01/
     #message-service: /zuul/service02/**
   #ignored-services: eureka-client  #忽略整个服务，对外提供接口
@@ -35,3 +45,5 @@ sysconfig:
 
 #正常走的地址：eureka-client ：http://localhost:8771/api/controller/loan/sendmessage
 #异常之后走：message-service：http://localhost:8772/api/v1/loan/sendmessage1
+
+#@LoadBalanced

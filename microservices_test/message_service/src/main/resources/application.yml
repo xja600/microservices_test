@@ -11,9 +11,9 @@ eureka:
 spring:
   application:
     name: message-service
-ribbon:
-  eureka:
-    enabled: true
+#ribbon:
+#  eureka:
+#    enabled: true
 
 #rocketmq
 apache:
