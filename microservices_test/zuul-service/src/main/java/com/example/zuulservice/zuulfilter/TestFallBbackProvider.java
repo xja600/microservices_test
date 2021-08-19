@@ -121,8 +121,7 @@ public class TestFallBbackProvider implements FallbackProvider {
      * @return ClientHttpResponse 就是响应的具体内容。
      *  相当于一个HttpServletResponse。
      */
-    private final ClientHttpResponse executeFallback(final HttpStatus status,
-                                                     String contentMsg, String mediaType, String subMediaType, String charsetName) {
+    private final ClientHttpResponse executeFallback(final HttpStatus status,final String contentMsg, final String mediaType, final String subMediaType, final String charsetName) {
         return new ClientHttpResponse() {
 
             /**
