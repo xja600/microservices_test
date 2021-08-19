@@ -1,0 +1,31 @@
+server:
+  port: 8777
+
+#指定注册中心地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+#服务的名称
+#请求地址： http://localhost:8777/接路由
+#请求地址： http://localhost:8777/getId/id=1
+#界面请求地址： http://localhost:8777/hystrix
+spring:
+  application:
+    name: hystrix-service
+
+feign:
+  hystrix:
+    enabled: true  #打开接口降级服务
+
+#### 超时时间，超过该响应时间则降级处理
+#### 不加该配置默认为 1s
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000
+
