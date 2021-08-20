@@ -1,0 +1,6 @@
+1、单点登录以及session
+2、多服务器怎么保证session一致，怎么知道你登录过，redis怎么不存
+3、redis集群如何保证数据一致性
+4、redis如何取代mq
+5、后端拿到session怎么存redis
+6、rdb跟aof区别
