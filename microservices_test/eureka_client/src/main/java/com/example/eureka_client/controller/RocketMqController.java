@@ -25,7 +25,7 @@ public class RocketMqController {
     @RequestMapping("/push")
     public String pushMsg(String msg) {
 
-        System.out.println("-------------11----------------");
+        System.out.println("-------------11----------------msg="+msg);
         return producer.send("test1", "push", msg);
 
     }

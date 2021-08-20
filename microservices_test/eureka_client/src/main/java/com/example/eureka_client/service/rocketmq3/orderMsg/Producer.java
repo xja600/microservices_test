@@ -22,7 +22,8 @@ public class Producer {
      
         DefaultMQProducer producer = new DefaultMQProducer("OrderProducer");  
           
-        producer.setNamesrvAddr("127.0.0.1:9876");
+        //producer.setNamesrvAddr("127.0.0.1:9876");
+        producer.setNamesrvAddr("localhost:9876");
         // 发送消息失败重试的次数
         producer.setRetryTimesWhenSendFailed(3);
         /** 

@@ -32,7 +32,7 @@ public class AspectTest {
     @Pointcut("execution(* com.example.eureka_client.controller.*.*(..))" )
     public void pointCut(){}
 
-    @Around("pointCut()")
+    //@Around("pointCut()")
     public Object around(ProceedingJoinPoint point) throws Throwable {
 
         try {
