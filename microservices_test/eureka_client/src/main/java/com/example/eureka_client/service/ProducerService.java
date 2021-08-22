@@ -52,7 +52,7 @@ public class ProducerService {
     @PreDestroy
     public void shutDownProducer() {
         if (producer != null) {
-            producer.shutdown();
+            //producer.shutdown();
         }
     }
 }

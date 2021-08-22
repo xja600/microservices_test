@@ -58,6 +58,6 @@ public class Producer {
          * 应用退出时，要调用shutdown来清理资源，关闭网络连接，从MetaQ服务器上注销自己 
          * 注意：我们建议应用在JBOSS、Tomcat等容器的退出钩子里调用shutdown方法 
          */  
-        producer.shutdown();  
+        //producer.shutdown();
     }  
 }

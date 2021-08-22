@@ -25,3 +25,7 @@ echo ------------启动控制台完成---------------------
 
 
 pause
+
+备份用户变量
+CLASS_PATH
+.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar

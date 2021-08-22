@@ -83,7 +83,7 @@ public class RocketMessageProducer implements MessageProducer {
 	
 	public void destory() {
 		try {
-			producer.shutdown();
+			//producer.shutdown();
 		} catch (Exception e) {
 		}
 	}
