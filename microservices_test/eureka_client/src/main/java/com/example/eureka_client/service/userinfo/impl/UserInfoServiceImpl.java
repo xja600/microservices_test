@@ -41,6 +41,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
         }*/
 
         List<UserInfo> userInfoList = userInfoMapper.getUserInfo(userInfo);
+        //List<UserInfo> userInfoList = null;
 
         return userInfoList;
     }
