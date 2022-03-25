@@ -4,7 +4,7 @@ import com.spring.dao.entity.CodeLibrary;
 import com.spring.dao.entity.UserInfo;
 import com.spring.dao.mapper.CodeLibraryMapper;
 import com.spring.dao.mapper.UserInfoMapper;
-import com.spring.dao.test.CodeLibraryServiceImpl2;
+//import com.spring.dao.test.CodeLibraryServiceImpl2;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -21,8 +21,8 @@ public class SpringbootDaoApplicationTests {
 
     Logger logger = LoggerFactory.getLogger(SpringbootDaoApplicationTests.class);
 
-    @Autowired
-    CodeLibraryServiceImpl2 codeLibraryServiceImpl2;
+   /* @Autowired
+    CodeLibraryServiceImpl2 codeLibraryServiceImpl2;*/
 
 //    @Autowired
 //    RedisTemplate<String, Object> redisTemplate;
