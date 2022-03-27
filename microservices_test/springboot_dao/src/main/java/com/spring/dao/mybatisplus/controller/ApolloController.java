@@ -23,6 +23,15 @@ import org.springframework.web.bind.annotation.RestController;
  启动成功之后，登录地址：
  http://127.0.0.1:8070
  默认 用户名密码是 apollo admin
+
+ 注意：
+ 使用该方式不支持增加环境，只有通过分布式部署才可以新增环境
+ 使用该方式端口号不能修改，其他电脑无法使用配置中心
+ 使用自建项目使用配置中心，这里创建Spring Boot项目，在resources下创建META-INF目录，创建app.properties文件，配置app.id=** 和 apollo.meta=http://localhost:8080,更为具体的使用方式详见：Apollo java客户端使用指南
+ 通过./demo.sh stop停止服务 apolloconfigdb_pro
+ ————————————————
+ 版权声明：本文为CSDN博主「笙箫123」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+ 原文链接：https://blog.csdn.net/q15102780705/article/details/102255192
  */
 @RestController
 @RequestMapping("/api/controller/apollo")
